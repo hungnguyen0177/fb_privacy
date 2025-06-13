@@ -1,3 +1,5 @@
+[![🔍 CI Quality Checks](https://github.com/geminisportsai/frontend-v2/actions/workflows/ci.yml/badge.svg)](https://github.com/geminisportsai/frontend-v2/actions/workflows/ci.yml)
+
 # 🧪 Playwright End-to-End Testing Documentation
 
 This repository uses [Playwright](https://playwright.dev/) for robust, automated end-to-end (E2E) browser testing. The test suite is designed to ensure the reliability and quality of both UI and critical user flows across multiple environments, with seamless local and CI integration.
@@ -6,10 +8,12 @@ This repository uses [Playwright](https://playwright.dev/) for robust, automated
 
 ## Project Structure
 
-- **desktop-layout/**: Tests for desktop-oriented features and layouts.
-- **layout-web/**: Tests for general web layouts and shared flows.
-- **fixtures/**: Mock data and reusable test fixtures.
-- **utils/**: Helper functions and custom selectors for tests.
+- **playwright.config.ts**: Main Playwright configuration file.
+- **e2e_web/constants/**: Contains global constants, mock data, and shared configuration for the entire test suite.
+- **e2e_web/desktop-layout/**: Tests for desktop layouts and features.
+- **e2e_web/shadow-team/**: Tests for Shadow Team layouts and features
+- **e2e_testId/**: Defines unique test IDs for identifying components in E2E tests.
+- **e2e_web/auth.config.ts**: .
 
 ---
 
@@ -17,9 +21,12 @@ This repository uses [Playwright](https://playwright.dev/) for robust, automated
 ### 1. Install Dependencies
 
 ```bash
-# Install Playwright for Python
-pip install playwright
-playwright install
+# Install Playwright
+yarn install playwright
+
+# Install test browser
+yarn playwright install
+```
 
 ### 2. Environment Configuration
 
@@ -42,23 +49,27 @@ Each command sets `TEST_ENV` for environment-specific configuration.
 ### Run a Specific Test File
 
 ```bash
-yarn test:[env] [path_to_test_file]
+yarn test:**[env]** **[path_to_test_file]**
+```
 
-- **[env]**: Can be local/dev/staging/production.
-
+- **[env]**: The environment to run tests in. Can be one of local, dev, staging, or production.
+- **[path_to_test_file]**: The relative path to the test file you want to run.
+  
 ---
 
 ## Viewing Test Reports
 
 After running tests, view the HTML report with:
-> **Note:** If you encounter `EADDRINUSE` errors (port 9323 in use), free the port:
-> ```
-> lsof -i :9323
-> kill -9 <PID>
-> ```
-
 ```bash
 yarn playwright show-report
+```
+
+**Note:** If you encounter `EADDRINUSE` errors (port 9323 in use), free the port:
+```
+lsof -i :9323
+kill -9 <PID>
+```
+
 
 
 
