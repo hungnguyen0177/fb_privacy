@@ -1,20 +1,17 @@
-# 🧪 Test Automation with Playwright & unittest
+# 🧪 Playwright End-to-End Testing Documentation
 
-## 📝 Overview
+This repository uses [Playwright](https://playwright.dev/) for robust, automated end-to-end (E2E) browser testing. The test suite is designed to ensure the reliability and quality of both UI and critical user flows across multiple environments, with seamless local and CI integration.
 
-This project uses:
-- [**Playwright**](https://playwright.dev/) for end-to-end UI testing of the web application.
-- 
 ---
 
-## 📦 Installation
-
-### 1. System Requirements
-- Node.js (v20.0.0 or greater)
-
-### 2. Install Playwright and dependencies
-```bash
-# Install Playwright for Python
-pip install playwright
-playwright install
-
+## Project Structure
+e2e_web/
+├── constants/
+├── desktop-layout/
+│   └── specs/
+├── home/
+├── shadow-team/
+│   └── specs/
+├── testId/
+├── fixtures/
+└── utils/
